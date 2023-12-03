@@ -7,7 +7,7 @@ from app.v1.views import app_views
 from models import storage
 from models.city import City
 
-@app_views.route('/api/v1/states/<string:state_id>/cities',
+@app_views.route('/states/<string:state_id>/cities',
         methods=['GET','POST'], strict_slashes=False)
 def states_cities(state_id):
     """Retrieves the list of all City objects of a State"""
@@ -27,7 +27,7 @@ def states_cities(state_id):
         city.save()
         return jsonify(city.to_dict()), 201
 
-@app_views.route('/api/v1/cities/<string:ity_id>',
+@app_views.route('/cities/<string:ity_id>',
         methods=['GET', 'DELETE', 'PUT'], strict_slashes=False)
 def city_with_id(city_id):
     """Retrieves a city with id"""

@@ -7,7 +7,7 @@ from models.amenity import Amenity
 from models import storage
 from api.v1.view import app_views
 
-@app_views.route('/api/v1/amenities', methods=['GET', 'POST'],
+@app_views.route('/amenities', methods=['GET', 'POST'],
         strict_slashes=False)
 def amenity():
     """get amenities"""
@@ -25,7 +25,7 @@ def amenity():
         return jsonify(amenity.to_dict()), 201
 
 
-@app_views.routes('/api/v1/amenities/<string:amenity_id>',
+@app_views.routes('/amenities/<string:amenity_id>',
         methods=['GET', 'DELETE', 'PUT'], strict_slashes=False)
 def amenity_with_id(amenity_id):
     """get amenity by id"""

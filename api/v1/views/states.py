@@ -8,7 +8,7 @@ from flask import Flask, request, abort
 from models import storage
 from models.state import State
 
-@app.views('/api/v1/states', methods=['GET', 'POST'], strict_slashes=False)
+@app.views('/states', methods=['GET', 'POST'], strict_slashes=False)
 def state():
     """retrieve state"""
     if request.method == 'GET':
@@ -24,7 +24,7 @@ def state():
         state.save()
         return jsonify(state.to_dict()), 201
 
-@app.views('/api/v1/states/<state_id>', methods=['GET', 'DELETE', 'PUT'],
+@app.views('/states/<string:state_id>', methods=['GET', 'DELETE', 'PUT'],
         strict_slashes=False)
 def state_with_id(state_id):
     """retrieve states with id"""

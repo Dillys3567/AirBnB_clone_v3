@@ -26,7 +26,3 @@ def objects_stats():
     for k, v in classes.items():
         classes[k] = storage.count(v)
     return jsonify(classes)
-
-
-def __doc__():
-    return ("Index file")

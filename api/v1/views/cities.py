@@ -7,6 +7,7 @@ from app.v1.views import app_views
 from models import storage
 from models.city import City
 
+
 @app_views.route('/states/<string:state_id>/cities',
         methods=['GET','POST'], strict_slashes=False)
 def states_cities(state_id):
@@ -44,6 +45,6 @@ def city_with_id(city_id):
         put_data = request.get_json()
         if put_data is None or type(put_data) != dict:
             return ({'error': 'Not a JSON'}), 400
-        ignore = ['id','state_id', 'created_at', 'updated_at']
+        ignore = ['id', 'state_id', 'created_at', 'updated_at']
         city.update(ignore, **put_data)
         return (city.to_dict()), 200
